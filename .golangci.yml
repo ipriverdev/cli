@@ -1,0 +1,40 @@
+linters:
+  enable:
+    - errcheck
+    - govet
+    - staticcheck
+    - gosimple
+    - unused
+    - ineffassign
+    - gocritic
+    - gofmt
+    - goimports
+    - gosec
+    - nilerr
+    - errorlint
+    - bodyclose
+
+linters-settings:
+  errcheck:
+    exclude-functions:
+      - fmt.Fprintf
+      - fmt.Fprintln
+      - fmt.Printf
+      - fmt.Println
+      - (os.File).Close
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - style
+    disabled-checks:
+      - ifElseChain
+      - hugeParam
+  gosec:
+    excludes:
+      - G101 # false positives on variable names like "token"
+      - G304 # file path from variable (expected in CLI)
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
