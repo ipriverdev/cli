@@ -15,26 +15,25 @@ linters:
     - nilerr
     - errorlint
     - bodyclose
-
-linters-settings:
-  errcheck:
-    exclude-functions:
-      - fmt.Fprintf
-      - fmt.Fprintln
-      - fmt.Printf
-      - fmt.Println
-      - (os.File).Close
-  gocritic:
-    enabled-tags:
-      - diagnostic
-      - style
-    disabled-checks:
-      - ifElseChain
-      - hugeParam
-  gosec:
-    excludes:
-      - G101
-      - G304
+  settings:
+    errcheck:
+      exclude-functions:
+        - fmt.Fprintf
+        - fmt.Fprintln
+        - fmt.Printf
+        - fmt.Println
+        - (os.File).Close
+    gocritic:
+      enabled-tags:
+        - diagnostic
+        - style
+      disabled-checks:
+        - ifElseChain
+        - hugeParam
+    gosec:
+      excludes:
+        - G101
+        - G304
 
 issues:
   max-issues-per-linter: 0
