@@ -5,12 +5,12 @@
 class Ipriver < Formula
   desc "The ipriver command-line tool"
   homepage "https://github.com/ipriverdev/cli"
-  version "0.1.2"
+  version "0.1.3"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/ipriverdev/cli/releases/download/v0.1.2/cli_0.1.2_darwin_amd64.tar.gz"
-      sha256 "edcf14ed805044241e4dbf58ebfebd44a42d0fbdda866fe8befa3a4b8aff6b10"
+      url "https://github.com/ipriverdev/cli/releases/download/v0.1.3/ipriver_0.1.3_darwin_amd64.tar.gz"
+      sha256 "51e1337bbe006bb5432fe46955ec020e3e5abfd5e12f0df51c9b3f5c0753b45f"
 
       define_method(:install) do
         bin.install "ipriver"
@@ -18,8 +18,8 @@ class Ipriver < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/ipriverdev/cli/releases/download/v0.1.2/cli_0.1.2_darwin_arm64.tar.gz"
-      sha256 "7917b40135db0104630b296ecf9bb5af2865217822c8ff976da09c607c635e42"
+      url "https://github.com/ipriverdev/cli/releases/download/v0.1.3/ipriver_0.1.3_darwin_arm64.tar.gz"
+      sha256 "0f7a4a26a6f42ad17de62b00b20f1ae927fbb1c5c643627a10fba69428834eee"
 
       define_method(:install) do
         bin.install "ipriver"
@@ -30,16 +30,16 @@ class Ipriver < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ipriverdev/cli/releases/download/v0.1.2/cli_0.1.2_linux_amd64.tar.gz"
-      sha256 "73cae4688bb0f85270ecae1c5ba1aecb04f634075203da1cbef64271e1a4e97a"
+      url "https://github.com/ipriverdev/cli/releases/download/v0.1.3/ipriver_0.1.3_linux_amd64.tar.gz"
+      sha256 "3d9b3fcc418f67d4cfed1fb4093a406f716dfad353661dcd30bd5cc5f486f570"
       define_method(:install) do
         bin.install "ipriver"
         bin.install_symlink "ipriver" => "ipr"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ipriverdev/cli/releases/download/v0.1.2/cli_0.1.2_linux_arm64.tar.gz"
-      sha256 "957b2f2bd9dade19c60663da4c689e442ee322c8425c5adc6caf8f3dde7daedc"
+      url "https://github.com/ipriverdev/cli/releases/download/v0.1.3/ipriver_0.1.3_linux_arm64.tar.gz"
+      sha256 "5d75a6b38c8fb99d4b363ab0b326fcbb60df4ed39fd10478f8e327b17b05c22e"
       define_method(:install) do
         bin.install "ipriver"
         bin.install_symlink "ipriver" => "ipr"
