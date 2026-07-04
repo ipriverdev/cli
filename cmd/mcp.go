@@ -3,6 +3,7 @@ package cmd
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -133,11 +134,11 @@ func runMCPInstall() error {
 		return fmt.Errorf("marshal config: %w", err)
 	}
 
-	if err := os.MkdirAll(filepath.Dir(configPath), 0o755); err != nil {
+	if err := os.MkdirAll(filepath.Dir(configPath), 0o750); err != nil {
 		return fmt.Errorf("create config directory: %w", err)
 	}
 
-	if err := os.WriteFile(configPath, append(out, '\n'), 0o644); err != nil {
+	if err := os.WriteFile(configPath, append(out, '\n'), 0o600); err != nil {
 		return fmt.Errorf("write config: %w", err)
 	}
 
@@ -158,8 +159,11 @@ func runMCPUninstall() error {
 
 	data, err := os.ReadFile(configPath)
 	if err != nil {
-		ui.Info("No Claude Desktop config found. Nothing to remove.")
-		return nil
+		if errors.Is(err, os.ErrNotExist) {
+			ui.Info("No Claude Desktop config found. Nothing to remove.")
+			return nil
+		}
+		return fmt.Errorf("read config %s: %w", configPath, err)
 	}
 
 	config := make(map[string]any)
@@ -190,7 +194,7 @@ func runMCPUninstall() error {
 		return fmt.Errorf("marshal config: %w", err)
 	}
 
-	if err := os.WriteFile(configPath, append(out, '\n'), 0o644); err != nil {
+	if err := os.WriteFile(configPath, append(out, '\n'), 0o600); err != nil {
 		return fmt.Errorf("write config: %w", err)
 	}
 
@@ -199,7 +203,6 @@ func runMCPUninstall() error {
 
 	return nil
 }
-
 
 func runMCP() error {
 	s := server.NewMCPServer(
