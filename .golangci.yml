@@ -1,3 +1,5 @@
+version: "2"
+
 linters:
   enable:
     - errcheck
@@ -31,10 +33,9 @@ linters-settings:
       - hugeParam
   gosec:
     excludes:
-      - G101 # false positives on variable names like "token"
-      - G304 # file path from variable (expected in CLI)
+      - G101
+      - G304
 
 issues:
-  exclude-use-default: false
   max-issues-per-linter: 0
   max-same-issues: 0
