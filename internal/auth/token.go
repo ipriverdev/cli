@@ -39,7 +39,7 @@ type Credentials struct {
 type keyringFileStore struct{}
 
 func (s *keyringFileStore) Save(creds Credentials) error {
-	data, err := json.Marshal(creds)
+	data, err := json.Marshal(creds) //nolint:gosec // G117: field name matches secret pattern but is not a leak
 	if err != nil {
 		return fmt.Errorf("marshal credentials: %w", err)
 	}
@@ -210,7 +210,7 @@ func saveCredentialsFile(creds Credentials) error {
 		return err
 	}
 
-	data, err := json.Marshal(creds)
+	data, err := json.Marshal(creds) //nolint:gosec // G117: field name matches secret pattern but is not a leak
 	if err != nil {
 		return fmt.Errorf("marshal credentials: %w", err)
 	}

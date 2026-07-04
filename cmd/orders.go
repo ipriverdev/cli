@@ -247,7 +247,7 @@ func runBroadbandOrdersList(cmd *cobra.Command) error {
 		}
 		fmt.Fprintf(w, "  %s\t%s\t%s\t%s\t%s\n", o.Reference, o.EndUser, o.Product.Name, status, o.CreatedAt)
 	}
-	w.Flush()
+	_ = w.Flush()
 	fmt.Printf("\n%d order(s) found.\n", len(orders))
 	return nil
 }
@@ -279,7 +279,7 @@ func runEthernetOrdersList(cmd *cobra.Command) error {
 		}
 		fmt.Fprintf(w, "  %s\t%s\t%s\t%s\t%s\t%s\n", o.Reference, o.EndUser, o.Product.Name, o.Product.Carrier, status, o.CreatedAt)
 	}
-	w.Flush()
+	_ = w.Flush()
 	fmt.Printf("\n%d order(s) found.\n", len(orders))
 	return nil
 }

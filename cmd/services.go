@@ -128,7 +128,7 @@ func printServicesTable(services []InternetService) {
 		}
 		fmt.Fprintf(w, "  %s\t%s\t%s\t%s\t%s\n", s.Reference, s.Technology, s.NetworkType, endUser, postcode)
 	}
-	w.Flush()
+	_ = w.Flush()
 	fmt.Printf("\n%d service(s) found.\n", len(services))
 }
 
@@ -149,5 +149,5 @@ func printServiceDetail(svc InternetService) {
 		fmt.Fprintf(w, "Address:\t%s\n", svc.EndUserDetails.Address)
 		fmt.Fprintf(w, "Postcode:\t%s\n", svc.EndUserDetails.Postcode)
 	}
-	w.Flush()
+	_ = w.Flush()
 }

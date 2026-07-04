@@ -41,7 +41,7 @@ Use ` + "`ipriver -v`" + ` to display the current version.
 Here are the base commands:`,
 	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 		if noColor, _ := cmd.Flags().GetBool("no-color"); noColor {
-			os.Setenv("NO_COLOR", "1")
+			_ = os.Setenv("NO_COLOR", "1")
 		}
 		if app.OutputFormat != "" && app.OutputFormat != "json" {
 			return fmt.Errorf("unknown output format %q (supported: json)", app.OutputFormat)

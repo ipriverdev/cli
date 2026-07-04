@@ -24,7 +24,7 @@ func runWhoami(ctx context.Context) error {
 	if _, err := auth.GetToken(); err != nil {
 		ui.Info("You are not logged in.")
 		ui.Info("Run `ipriver login` to authenticate.")
-		return nil
+		return err
 	}
 
 	cfg, err := config.Load()

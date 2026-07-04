@@ -64,8 +64,8 @@ func (f *DeviceFlow) Login(ctx context.Context) (*LoginResult, error) {
 		return nil, fmt.Errorf("store credentials: %w", err)
 	}
 
-	user, err := CurrentUser(ctx, f.host)
-	if err != nil {
+	user, _ := CurrentUser(ctx, f.host)
+	if user == nil {
 		return &LoginResult{Credentials: *creds}, nil
 	}
 

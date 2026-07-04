@@ -197,7 +197,7 @@ func runTicketsList(cmd *cobra.Command) error {
 	for _, t := range tickets {
 		fmt.Fprintf(w, "  %s\t%s\t%s\t%s\t%s\n", t.Reference, t.Title, t.Status.FullName, t.CompanyName, t.CreatedAt)
 	}
-	w.Flush()
+	_ = w.Flush()
 	fmt.Printf("\n%d ticket(s) found.\n", len(tickets))
 	return nil
 }
@@ -232,7 +232,7 @@ func runTicketGet(ctx context.Context, id string) error {
 			fmt.Fprintf(w, "Service:\t%s (%s)\n", s.Reference, s.ID)
 		}
 	}
-	w.Flush()
+	_ = w.Flush()
 	return nil
 }
 

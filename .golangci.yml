@@ -10,8 +10,6 @@ linters:
     - errcheck
     - govet
     - staticcheck
-    - gosimple
-    - unused
     - ineffassign
     - gocritic
     - gosec
@@ -26,13 +24,13 @@ linters:
         - fmt.Printf
         - fmt.Println
         - (os.File).Close
+        - (io.Closer).Close
     gocritic:
       enabled-tags:
         - diagnostic
         - style
       disabled-checks:
         - ifElseChain
-        - hugeParam
     gosec:
       excludes:
         - G101

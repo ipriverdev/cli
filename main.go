@@ -23,6 +23,6 @@ func main() {
 
 	if err := cmd.Execute(ctx); err != nil {
 		ui.Error(err.Error())
-		os.Exit(1)
+		os.Exit(1) //nolint:gocritic // intentional exit after error
 	}
 }

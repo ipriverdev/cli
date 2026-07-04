@@ -77,7 +77,7 @@ func runAdditionalProducts(cmd *cobra.Command) error {
 	for _, p := range products {
 		fmt.Fprintf(w, "  %s\t%s\t%s\t%s\n", p.Name, p.Type, p.MonthlySalePrice.Money, p.InstallSalePrice.Money)
 	}
-	w.Flush()
+	_ = w.Flush()
 	fmt.Printf("\n%d product(s) found.\n", len(products))
 	return nil
 }

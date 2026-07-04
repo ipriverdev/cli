@@ -126,7 +126,7 @@ func printAddressTable(addresses []Address) {
 	for i, a := range addresses {
 		fmt.Fprintf(w, "  %d\t%s\t%s\t%s\t%s\n", i+1, a.Address, string(a.UPRN), a.ALK, a.District)
 	}
-	w.Flush()
+	_ = w.Flush()
 	fmt.Printf("\n%d address(es) found.\n", len(addresses))
 }
 
@@ -155,5 +155,5 @@ func printAddressDetail(addr Address) {
 	if addr.District != "" {
 		fmt.Fprintf(w, "District:\t%s\n", addr.District)
 	}
-	w.Flush()
+	_ = w.Flush()
 }
