@@ -23,7 +23,8 @@ irm https://raw.githubusercontent.com/ipriverdev/cli/main/install.ps1 | iex
 ### Homebrew
 
 ```bash
-brew install ipriverdev/tap/ipriver
+brew tap ipriverdev/cli https://github.com/ipriverdev/cli
+brew install ipriverdev/cli/ipriver
 ```
 
 ### Binary download

@@ -60,7 +60,8 @@ brews:
   - name: ipriver
     repository:
       owner: ipriverdev
-      name: homebrew-tap
+      name: cli
+      directory: Formula
     homepage: "https://github.com/ipriverdev/cli"
     description: "The ipriver command-line tool"
     install: |
