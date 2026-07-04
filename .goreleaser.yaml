@@ -61,7 +61,7 @@ brews:
     repository:
       owner: ipriverdev
       name: cli
-      directory: Formula
+    directory: Formula
     homepage: "https://github.com/ipriverdev/cli"
     description: "The ipriver command-line tool"
     install: |
