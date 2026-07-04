@@ -51,6 +51,73 @@ ipriver address postcode "SW1A 1AA"
 ipriver check --postcode "SW1A 1AA" --uprn 10033544614
 ```
 
+## Use with Claude
+
+The CLI has a built-in MCP server. This lets Claude Desktop access the IP River Portal — look up addresses, check availability, view orders and services, manage support tickets, and more.
+
+### Step 1: Install the CLI
+
+**macOS / Linux:**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ipriverdev/cli/main/install.sh | sh
+```
+
+**macOS (Homebrew):**
+
+```bash
+brew tap ipriverdev/cli https://github.com/ipriverdev/cli
+brew install ipriverdev/cli/ipriver
+```
+
+**Windows (PowerShell):**
+
+```powershell
+irm https://raw.githubusercontent.com/ipriverdev/cli/main/install.ps1 | iex
+```
+
+### Step 2: Log in
+
+Open a terminal and run:
+
+```bash
+ipriver login
+```
+
+This opens your browser to authenticate. You only need to do this once.
+
+### Step 3: Connect to Claude Desktop
+
+```bash
+ipriver mcp install
+```
+
+This automatically adds the IP River MCP server to your Claude Desktop config. Works on macOS, Windows, and Linux.
+
+### Step 4: Restart Claude Desktop
+
+Quit and reopen Claude Desktop. You should see the IP River tools available (look for the hammer icon).
+
+> To remove it later: `ipriver mcp uninstall`
+
+### What you can ask Claude
+
+- *"What broadband and ethernet products are available at postcode SW1A 1AA?"*
+- *"Show me my active internet services"*
+- *"List my open support tickets"*
+- *"Create a support ticket for intermittent connectivity on service X"*
+- *"What are my recent ethernet orders?"*
+- *"Look up the address for UPRN 10033544614"*
+
+### Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| Claude says it can't find `ipriver` | Use the full path to the binary in the config (see above) |
+| Tools fail with "not logged in" | Run `ipriver login` in your terminal |
+| No tools showing in Claude | Make sure you restarted Claude Desktop after editing the config |
+| Config file doesn't exist | Create it — the folder and file may not exist yet |
+
 ## Commands
 
 See [USAGE.md](USAGE.md) for full command reference with examples, flags, and JSON output.

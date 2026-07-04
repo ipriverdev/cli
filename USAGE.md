@@ -306,3 +306,45 @@ Example response:
   ]
 }
 ```
+
+---
+
+## MCP (Claude Desktop integration)
+
+The CLI includes a built-in MCP server for Claude Desktop and other AI assistants.
+
+### Setup
+
+```bash
+ipriver login
+ipriver mcp install
+# Restart Claude Desktop
+```
+
+To remove: `ipriver mcp uninstall`
+
+### Available tools
+
+| Tool | Description |
+|------|-------------|
+| `address_postcode` | Search addresses by postcode |
+| `address_uprn` | Look up address by UPRN |
+| `check_availability` | Run product availability check |
+| `check_status` | Get check status |
+| `check_get` | Get check details |
+| `check_products` | Get products for a check |
+| `services_list` | List internet services |
+| `services_get` | Get service details |
+| `orders_broadband_list` | List broadband orders |
+| `orders_broadband_get` | Get broadband order |
+| `orders_broadband_events` | Broadband order events |
+| `orders_ethernet_list` | List ethernet orders |
+| `orders_ethernet_get` | Get ethernet order |
+| `orders_ethernet_events` | Ethernet order events |
+| `tickets_list` | List support tickets |
+| `tickets_get` | Get ticket details |
+| `tickets_events` | Ticket events |
+| `tickets_create` | Create a ticket |
+| `tickets_reply` | Reply to a ticket |
+| `catalogue_additional_products` | Browse product catalogue |
+| `whoami` | Current account info |

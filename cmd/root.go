@@ -82,6 +82,7 @@ func init() {
 	rootCmd.AddCommand(ticketsCmd())
 	rootCmd.AddCommand(catalogueCmd())
 	rootCmd.AddCommand(completionCmd())
+	rootCmd.AddCommand(mcpCmd())
 
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
 	rootCmd.SetHelpCommand(&cobra.Command{Hidden: true})
