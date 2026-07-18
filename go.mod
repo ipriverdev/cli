@@ -6,7 +6,7 @@ require (
 	github.com/briandowns/spinner v1.23.2
 	github.com/charmbracelet/lipgloss v1.1.0
 	github.com/mark3labs/mcp-go v0.55.1
-	github.com/mattn/go-isatty v0.0.20
+	github.com/mattn/go-isatty v0.0.23
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/spf13/cobra v1.10.2
 	github.com/zalando/go-keyring v0.2.8
